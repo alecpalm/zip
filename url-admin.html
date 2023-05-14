@@ -1,128 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>URL List</title>
-  <style>
-    body {
-      background-color: #f0f0f0;
-      font-family: Arial, sans-serif;
-    }
-    
-    h1 {
-      color: #333333;
-    }
-    
-    table {
-      margin: 20px auto;
-      background-color: #dddddd;
-      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-      border-collapse: collapse;
-      width: 80%;
-    }
-    
-    th {
-      background-color: #555555;
-      color: #ffffff;
-      padding: 10px;
-    }
-    
-    td {
-      background-color: #ffffff;
-      padding: 10px;
-    }
-    
-    button {
-      background-color: #dd3333;
-      color: #ffffff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-    
-    button:hover {
-      background-color: #cc0000;
-       .delete-button {
-      background-color: #dd3333;
-      color: #ffffff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-    .delete-button:hover {
-      background-color: #cc0000;
-    }
-          .delete-button {
-      background-color: #dd3333;
-      color: #ffffff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-    .delete-button:hover {
-      background-color: #cc0000;
-    }
-  </style>
+  <title>URL Shortener</title>
   <script>
-    async function fetchAllUrls() {
-      const response = await fetch('/.netlify/functions/fetchAll');
-      const urls = await response.json();
+    async function shortenUrl() {
+      const url = document.getElementById('url').value;
+      const short = document.getElementById('short').value;
 
-      const tableBody = document.getElementById('url-table-body');
-      urls.data.forEach((url) => {
-        const row = document.createElement('tr');
-        const shortCell = document.createElement('td');
-        shortCell.textContent = url.data.short;
-        const urlCell = document.createElement('td');
-        urlCell.textContent = url.data.url;
-        const actionCell = document.createElement('td');
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.classList.add('delete-button');
-        deleteButton.addEventListener('click', () => deleteUrl(url.data.short));
-        actionCell.appendChild(deleteButton);
-        row.appendChild(shortCell);
-        row.appendChild(urlCell);
-        row.appendChild(actionCell);
-        tableBody.appendChild(row);
-      });
-    }
-
-    async function deleteUrl(short) {
-      if (confirm('Are you sure you want to delete this URL?')) {
-        const response = await fetch('/.netlify/functions/deleteUrl', {
-          method: 'POST',
-          body: JSON.stringify({ short }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-        if (response.ok) {
-          alert('URL deleted successfully');
-          location.reload();
-        } else {
-          alert('An error occurred while deleting the URL');
+      const response = await fetch('/.netlify/functions/shorten', {
+        method: 'POST',
+        body: JSON.stringify({ url, short }),
+        headers: {
+          'Content-Type': 'application/json'
         }
+      });
+
+      if (response.ok) {
+        alert('URL shortened successfully');
+      } else {
+        alert('An error occurred');
       }
     }
-
-    window.onload = fetchAllUrls;
   </script>
+  <script>
+  // Function to get the current build time
+  function getBuildTime() {
+    var date = new Date();
+    var buildTime = date.toLocaleString();
+    return buildTime;
+  }
+
+  // Update the build-time span with the current build time
+  var buildTimeSpan = document.getElementById('build-time');
+  buildTimeSpan.textContent = getBuildTime();
+</script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var buildTimeSpan = document.getElementById('build-time');
+    if (buildTimeSpan !== null) {
+      buildTimeSpan.textContent = getBuildTime();
+    }
+  });
+</script>
+
 </head>
 <body>
-  <h1>List of URLs</h1>
-  <table id="url-table">
-    <thead>
-      <tr>
-        <th>Short</th>
-        <th>URL</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody id="url-table-body">
-      <!-- Table rows will be dynamically added here -->
-    </tbody>
-  </table>
+  <h1>URL Shortener</h1>
+  <input id="url" type="text" placeholder="Long URL">
+  <input id="short" type="text" placeholder="Short URL">
+  <button onclick="shortenUrl()">Shorten</button>
+  <br>
+  <p> Build Time: </p>
+  <span id="build-time"></span>
+  <br>
+ <a href="url-list.html">URL List</a>
 </body>
 </html>

@@ -71,11 +71,23 @@
 
       if (response.ok) {
         alert('URL shortened successfully');
+        copyToClipboard(short); // Call the copyToClipboard function
       } else {
         alert('An error occurred');
       }
     }
+
+    function copyToClipboard(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+     document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('Shortened URL copied to clipboard');
+    }
   </script>
+
 </head>
 <body>
   <h1>URL Shortener</h1>

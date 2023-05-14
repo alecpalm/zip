@@ -32,12 +32,12 @@ exports.handler = async function(event, context) {
         'Content-Type': 'text/html'
       },
       body: `
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <div>
-            <video src="RB-yrHYLwpLsgbIN.mp4" autoplay controls></video>
-          </div>
-          <div>
+        <div style="display: flex;">
+          <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
             <h1>Uh oh, you're lost</h1>
+          </div>
+          <div style="flex: 1;">
+            <video src="RB-yrHYLwpLsgbIN.mp4" autoplay loop style="width: 100%; height: 100%; object-fit: cover;"></video>
           </div>
         </div>
       `

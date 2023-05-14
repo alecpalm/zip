@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Alec Palm is a dedicated student, advocate, and proud Oregonian. Learn more about Alec's work and contributions.">
+    <link rel="icon" href="files/apfavi.png" type="image/x-icon">
+
+    <title>Alec Palm</title>
+    <style>
+        @font-face {
+            font-family: 'Trade';
+            src: url('files/TradeGothicNextLTProHv.ttf') format('truetype');
+        }
+
+        body {
+            background-image: url(files/back.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Trade';
+        }
+        
+        .text-effect {
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3)); /* Add shadow blur */
+        }
+        
+        .outline {
+            position: relative;
+            font-size: 10rem;
+            font-weight: bold;
+            color: transparent; /* Transparent color to hide the fill */
+            -webkit-text-stroke: 6px white; /* Outline style */
+            text-shadow: none; /* Remove shadow effect */
+            white-space: nowrap
+        }
+        
+        .outline::before {
+            content: attr(data-text);
+            color: transparent; /* Transparent color to hide the fill */
+        }
+        
+        .subheader {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            margin-top: 0.2rem; /* Adjust the margin value to decrease line spacing */
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            border-radius: 100px;
+            padding: 17px 25px 18.7px;
+            border: 3px solid white;
+            margin-top: 15px;
+            font-size: 1.3rem !important; /* Increase the font size and override with !important */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        @media (max-width: 767px) {
+            body {
+                background-repeat: no-repeat;
+            }
+            
+            .outline {
+                font-size: 4.5rem;
+                -webkit-text-stroke: 4px white;
+            }
+            
+            .subheader {
+                font-size: 1.5rem;
+            }
+
+            a {
+                padding: 12px 20px 13.7px;
+                font-size: 1rem !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outline text-effect" data-text="Alec Palm"></div>
+    <div class="subheader text-effect">Student, Advocate, Oregonian</div>
+    <br>
+    <a href="https://info.alecpalm.com" title="Learn More about Alec Palm">Learn More</a>
+</body>
+</html>

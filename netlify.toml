@@ -11,3 +11,7 @@
   from = "/*"
   to = "/.netlify/functions/redirect"
   status = 200
+
+[build]
+  functions = "functions"
+  command = "npm install faunadb && npm run build"

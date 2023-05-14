@@ -76,35 +76,12 @@
       }
     }
   </script>
-  <script>
-  // Function to get the current build time
-  function getBuildTime() {
-    var date = new Date();
-    var buildTime = date.toLocaleString();
-    return buildTime;
-  }
-
-  // Update the build-time span with the current build time
-  var buildTimeSpan = document.getElementById('build-time');
-  buildTimeSpan.textContent = getBuildTime();
-</script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var buildTimeSpan = document.getElementById('build-time');
-    if (buildTimeSpan !== null) {
-      buildTimeSpan.textContent = getBuildTime();
-    }
-  });
-</script>
 </head>
 <body>
   <h1>URL Shortener</h1>
   <input id="url" type="text" placeholder="Looong URL">
   <input id="short" type="text" placeholder="alec.zip/">
   <button onclick="shortenUrl()">Shorten</button>
-  <br>
-  <p> Build Time: </p>
-  <span id="build-time"></span>
   <br>
  <a href="url-list.html">URL List</a>
  <br>

@@ -24,6 +24,14 @@ exports.handler = async function(event, context) {
   } catch (error) {
     console.error('Error:', error);
     console.error('FaunaDB server secret:', process.env.FAUNADB_SERVER_SECRET); // Debugging: log the server secret
-    return { statusCode: 404, body: 'OOPS' };
+    
+    // Custom 404 response
+    return {
+      statusCode: 404,
+      headers: {
+        'Content-Type': 'text/html'
+      },
+      body: '<h1> </h1>'
+    };
   }
 };

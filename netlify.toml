@@ -1,3 +1,7 @@
+[[redirects]]
+  from = "/url-list"
+  to = "/url-list.html"
+  status = 200
 
 [[redirects]]
   from = "/url-admin"

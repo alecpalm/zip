@@ -70,8 +70,7 @@
       });
 
       if (response.ok) {
-        alert('URL shortened successfully');
-        copyToClipboard(short); // Call the copyToClipboard function
+        copyToClipboard('alec.zip/' + short); // Add the base URL before the short URL
       } else {
         alert('An error occurred');
       }
@@ -84,7 +83,6 @@
       textarea.select();
      document.execCommand('copy');
       document.body.removeChild(textarea);
-      alert('Shortened URL copied to clipboard');
     }
   </script>
 

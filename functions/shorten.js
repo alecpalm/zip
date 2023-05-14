@@ -14,6 +14,16 @@ exports.handler = async function(event, context) {
   }
 
   const data = { short, url };
+
+  try {
+    const existingUrl = await client.query(q.Get(q.Match(q.Index('urls_by_short'), short)));
+    if (existingUrl) {
+      return { statusCode: 409, body: 'URL already exists' };
+    }
+  } catch (error) {
+    // No existing URL, continue to create one
+  }
+
   const query = q.Create(q.Collection('urls'), { data });
 
   try {

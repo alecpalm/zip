@@ -85,7 +85,7 @@
         tr.appendChild(shortTd);
         tr.appendChild(urlTd);
         tr.appendChild(actionTd); // Append the action TD to the row
-        urlTable.appendChild(tr);
+        urlTable.getElementsByTagName('tbody')[0].appendChild(tr); // Append the row to the table body
       });
     }
 

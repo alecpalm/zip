@@ -55,17 +55,6 @@
     a:hover {
       text-decoration: underline;
     }
-          .short-container {
-      display: flex;
-      align-items: center;
-    }
-
-    #checkmark {
-      display: none;
-      height: 20px;
-      margin-left: 5px;
-    }
-
   </style>
   <script>
     async function shortenUrl() {
@@ -81,10 +70,8 @@
       });
 
       if (response.ok) {
-        // Show the green check image
-        document.getElementById('checkmark').style.display = 'inline';
-
-        copyToClipboard('alec.zip/' + short); // Add the base URL before the short URL
+        alert('URL shortened successfully');
+        copyToClipboard(short); // Call the copyToClipboard function
       } else {
         alert('An error occurred');
       }
@@ -95,20 +82,17 @@
       textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
-      document.execCommand('copy');
+     document.execCommand('copy');
       document.body.removeChild(textarea);
-    
+      alert('Shortened URL copied to clipboard');
     }
   </script>
 
-</head>
+    </head>
 <body>
   <h1>URL Shortener</h1>
   <input id="url" type="text" placeholder="Looong URL">
-  <div class="short-container"> <!-- Wrap the input and image inside this div -->
-    <input id="short" type="text" placeholder="alec.zip/">
-    <img id="checkmark" src="https://i.imgur.com/1AC35Lf.png" alt="Green check">
-  </div>
+  <input id="short" type="text" placeholder="alec.zip/">
   <button onclick="shortenUrl()">Shorten</button>
   <br>
  <a href="url-list.html">URL List</a>

@@ -14,10 +14,32 @@
         shortTd.textContent = url.data.short;
         const urlTd = document.createElement('td');
         urlTd.textContent = url.data.url;
+        const actionTd = document.createElement('td');
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => deleteUrl(url.data.short);
+        actionTd.appendChild(deleteButton);
+        
         tr.appendChild(shortTd);
         tr.appendChild(urlTd);
+        tr.appendChild(actionTd);
         urlTable.appendChild(tr);
       });
+    }
+
+    async function deleteUrl(short) {
+      const response = await fetch('/.netlify/functions/deleteUrl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ short }),
+      });
+
+      if (response.status === 200) {
+        alert('URL deleted successfully');
+        location.reload();
+      } else {
+        alert('An error occurred: ' + (await response.text()));
+      }
     }
 
     window.onload = fetchAllUrls;
@@ -29,6 +51,7 @@
     <tr>
       <th>Short</th>
       <th>URL</th>
+      <th>Action</th>
     </tr>
   </table>
 </body>

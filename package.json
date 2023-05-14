@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "build"
+  "build": "npm run build:frontend && npm run build:backend"
   },
   "dependencies": {
     "faunadb": "^4.1.0"

@@ -52,6 +52,17 @@
     .delete-button:hover {
       background-color: #cc0000;
     }
+          .delete-button {
+      background-color: #dd3333;
+      color: #ffffff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .delete-button:hover {
+      background-color: #cc0000;
+    }
   </style>
   <script>
     async function fetchAllUrls() {
@@ -65,15 +76,15 @@
         shortTd.textContent = url.data.short;
         const urlTd = document.createElement('td');
         urlTd.textContent = url.data.url;
-        const deleteTd = document.createElement('td');
+        const actionTd = document.createElement('td'); // Create the action TD
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete';
         deleteBtn.classList.add('delete-button'); // Add the CSS class to the button
         deleteBtn.addEventListener('click', () => deleteUrl(url.data.short));
-        deleteTd.appendChild(deleteBtn);
+        actionTd.appendChild(deleteBtn); // Append the button to the action TD
         tr.appendChild(shortTd);
         tr.appendChild(urlTd);
-        tr.appendChild(deleteTd);
+        tr.appendChild(actionTd); // Append the action TD to the row
         urlTable.appendChild(tr);
       });
     }

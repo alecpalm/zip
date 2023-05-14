@@ -1,6 +1,4 @@
-[build]
-  functions = "functions"
-  command = "npm install faunadb && npm run build"
+
 
 [[redirects]]
   from = "/url-admin"

@@ -34,6 +34,14 @@
   var buildTimeSpan = document.getElementById('build-time');
   buildTimeSpan.textContent = getBuildTime();
 </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var buildTimeSpan = document.getElementById('build-time');
+    if (buildTimeSpan !== null) {
+      buildTimeSpan.textContent = getBuildTime();
+    }
+  });
+</script>
 
 </head>
 <body>

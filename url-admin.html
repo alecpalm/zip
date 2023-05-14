@@ -55,6 +55,17 @@
     a:hover {
       text-decoration: underline;
     }
+          .short-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #checkmark {
+      display: none;
+      height: 20px;
+      margin-left: 5px;
+    }
+
   </style>
   <script>
     async function shortenUrl() {
@@ -94,8 +105,10 @@
 <body>
   <h1>URL Shortener</h1>
   <input id="url" type="text" placeholder="Looong URL">
-  <input id="short" type="text" placeholder="alec.zip/">
-  <img id="checkmark" src="confirm.png" alt="Green check"> 
+  <div class="short-container"> <!-- Wrap the input and image inside this div -->
+    <input id="short" type="text" placeholder="alec.zip/">
+    <img id="checkmark" src="https://i.imgur.com/1AC35Lf.png" alt="Green check">
+  </div>
   <button onclick="shortenUrl()">Shorten</button>
   <br>
  <a href="url-list.html">URL List</a>

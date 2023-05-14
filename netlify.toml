@@ -1,7 +1,14 @@
 
-
 [[redirects]]
   from = "/url-admin"
   to = "/url-admin.html"
   status = 200
 
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[functions]]
+  name = "shorten"
+  path = "functions/shorten.js"

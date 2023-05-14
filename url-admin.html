@@ -81,7 +81,7 @@ async function shortenUrl() {
   } else {
     if (response.status === 409) {
       if (window.confirm('The URL already exists. Would you like to override it?')) {
-        // Call the update URL function here to override the URL
+        updateUrl(short, url);
       }
     } else {
       alert('An error occurred');

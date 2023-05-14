@@ -5,24 +5,14 @@ const q = faunadb.query;
 
 exports.handler = async function(event, context) {
   const short = event.path.substring(1);
-  console.log('Short URL:', short); // Debugging: log the short URL
-
-  // If the path is empty or contains "index.html", return the main page content
-  if (short === '' || short === 'index.html') {
-    return {
-      statusCode: 200,
-      headers: {
-        'Content-Type': 'text/html'
-      },
-      body: '<!-- Place your main page HTML content here -->'
-    };
-  }
+  console.log('Short URL:', short);
 
   const query = q.Get(q.Match(q.Index('urls_by_short'), short));
+  console.log('FaunaDB query:', JSON.stringify(query)); // Debugging: log the FaunaDB query
 
   try {
     const result = await client.query(query);
-    console.log('Query result:', result); // Debugging: log the query result
+    console.log('Query result:', result);
 
     return {
       statusCode: 302,
@@ -32,7 +22,8 @@ exports.handler = async function(event, context) {
       body: ''
     };
   } catch (error) {
-    console.error('Error:', error); // Debugging: log the error
+    console.error('Error:', error);
+    console.error('FaunaDB server secret:', process.env.FAUNADB_SERVER_SECRET); // Debugging: log the server secret
     return { statusCode: 404, body: 'OOPS' };
   }
 };

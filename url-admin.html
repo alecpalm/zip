@@ -70,7 +70,9 @@
       });
 
       if (response.ok) {
-        alert('URL shortened successfully');
+        // Show the green check image
+        document.getElementById('checkmark').style.display = 'inline';
+
         copyToClipboard('alec.zip/' + short); // Add the base URL before the short URL
       } else {
         alert('An error occurred');
@@ -82,9 +84,9 @@
       textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
-     document.execCommand('copy');
+      document.execCommand('copy');
       document.body.removeChild(textarea);
-      alert('Shortened URL copied to clipboard');
+    
     }
   </script>
 
@@ -93,6 +95,7 @@
   <h1>URL Shortener</h1>
   <input id="url" type="text" placeholder="Looong URL">
   <input id="short" type="text" placeholder="alec.zip/">
+  <img id="checkmark" src="confirm.png" alt="Green check"> 
   <button onclick="shortenUrl()">Shorten</button>
   <br>
  <a href="url-list.html">URL List</a>

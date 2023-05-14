@@ -17,6 +17,6 @@ exports.handler = async function(event, context) {
       body: ''
     };
   } catch (error) {
-    return { statusCode: 404, body: 'Not Found' };
+    return { statusCode: 404, body: 'OOPS' };
   }
 };

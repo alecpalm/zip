@@ -1,5 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+const faunadb = require('faunadb');
+
+const client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+const q = faunadb.query;
 
 exports.handler = async function(event, context) {
   if (event.httpMethod !== 'POST') {
@@ -11,10 +13,13 @@ exports.handler = async function(event, context) {
     return { statusCode: 400, body: 'Bad Request' };
   }
 
-  const redirectsPath = path.join(__dirname, '../_redirects');
-  const newRedirect = `\n/${short} ${url} 301`;
+  const data = { short, url };
+  const query = q.Create(q.Collection('urls'), { data });
 
-  fs.appendFileSync(redirectsPath, newRedirect);
-
-  return { statusCode: 200, body: 'URL shortened successfully' };
+  try {
+    await client.query(query);
+    return { statusCode: 200, body: 'URL shortened successfully' };
+  } catch (error) {
+    return { statusCode: 500, body: 'An error occurred: ' + error.toString() };
+  }
 };

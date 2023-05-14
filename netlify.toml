@@ -1,6 +1,6 @@
 [build]
   functions = "functions"
-  publish = "."
+  command = "npm install faunadb && npm run build"
 
 [[redirects]]
   from = "/url-admin"
@@ -11,7 +11,3 @@
   from = "/*"
   to = "/.netlify/functions/redirect"
   status = 200
-
-[build]
-  functions = "functions"
-  command = "npm install faunadb && npm run build"

@@ -7,11 +7,16 @@
       const response = await fetch('/.netlify/functions/fetchAll');
       const urls = await response.json();
 
-      const urlList = document.getElementById('url-list');
+      const urlTable = document.getElementById('url-table');
       urls.data.forEach((url) => {
-        const li = document.createElement('li');
-        li.textContent = `Short: ${url.data.short}, URL: ${url.data.url}`;
-        urlList.appendChild(li);
+        const tr = document.createElement('tr');
+        const shortTd = document.createElement('td');
+        shortTd.textContent = url.data.short;
+        const urlTd = document.createElement('td');
+        urlTd.textContent = url.data.url;
+        tr.appendChild(shortTd);
+        tr.appendChild(urlTd);
+        urlTable.appendChild(tr);
       });
     }
 
@@ -20,6 +25,11 @@
 </head>
 <body>
   <h1>List of URLs</h1>
-  <ul id="url-list"></ul>
+  <table id="url-table">
+    <tr>
+      <th>Short</th>
+      <th>URL</th>
+    </tr>
+  </table>
 </body>
 </html>

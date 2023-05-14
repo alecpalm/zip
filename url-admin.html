@@ -22,11 +22,25 @@
       }
     }
   </script>
+  <script>
+  // Function to get the current build time
+  function getBuildTime() {
+    var date = new Date();
+    var buildTime = date.toLocaleString();
+    return buildTime;
+  }
+
+  // Update the build-time span with the current build time
+  var buildTimeSpan = document.getElementById('build-time');
+  buildTimeSpan.textContent = getBuildTime();
+</script>
+
 </head>
 <body>
   <h1>URL Shortener</h1>
   <input id="url" type="text" placeholder="Long URL">
   <input id="short" type="text" placeholder="Short URL">
   <button onclick="shortenUrl()">Shorten</button>
+  <span id="build-time"></span>
 </body>
 </html>

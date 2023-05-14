@@ -1,7 +1,5 @@
+json
 {
-  "scripts": {
-  "build": "npm install faunadb"
-  },
   "dependencies": {
     "faunadb": "^4.1.0"
   }

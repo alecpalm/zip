@@ -56,8 +56,6 @@
       text-decoration: underline;
     }
   </style>
-  <script src="update.js"></script> <!-- Import update.js here -->
-
   <script>
     async function shortenUrl() {
       const url = document.getElementById('url').value;
@@ -71,22 +69,10 @@
         }
       });
 
-      if (response.status === 200) {
-        copyToClipboard('alec.zip/' + short);
-      } else if (response.status === 409) {
-        handleExistingUrl(short, url);
+      if (response.ok) {
+        copyToClipboard('alec.zip/' + short); // Add the base URL before the short URL
       } else {
         alert('An error occurred');
-      }
-    }
-
-    async function handleExistingUrl(short, url) {
-     // Call the function from update.js (replace 'yourUpdateFunction' with the actual function name)
-      const result = await yourUpdateFunction(short, url);
-      if (result) {
-        alert('URL updated successfully');
-      } else {
-        alert('Error updating the URL');
       }
     }
 
@@ -95,7 +81,7 @@
       textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
-      document.execCommand('copy');
+     document.execCommand('copy');
       document.body.removeChild(textarea);
     }
   </script>

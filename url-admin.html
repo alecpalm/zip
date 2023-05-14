@@ -56,7 +56,8 @@
       text-decoration: underline;
     }
   </style>
-  <script>async function shortenUrl() {
+  <script>
+async function shortenUrl() {
   const url = document.getElementById('url').value;
   const short = document.getElementById('short').value;
 
@@ -69,7 +70,9 @@
   });
 
   if (response.ok) {
-    copyToClipboard('alec.zip/' + short); // Add the base URL before the short URL
+    const shortUrl = 'alec.zip/' + short;
+    await copyToClipboard(shortUrl); // Add the base URL before the short URL
+    alert('URL shortened successfully: ' + shortUrl);
   } else {
     if (response.status === 409) {
       alert('The URL already exists. Would you like to override it?');

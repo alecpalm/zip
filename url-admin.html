@@ -71,11 +71,18 @@ async function shortenUrl() {
 
   if (response.ok) {
     const shortUrl = 'alec.zip/' + short;
-    await copyToClipboard(shortUrl); // Add the base URL before the short URL
-    alert('URL shortened successfully: ' + shortUrl);
+    navigator.clipboard.writeText(shortUrl).then(function() {
+      /* clipboard successfully set */
+      alert('URL shortened successfully: ' + shortUrl);
+    }, function() {
+      /* clipboard write failed */
+      alert('Failed to copy URL to clipboard');
+    });
   } else {
     if (response.status === 409) {
-      alert('The URL already exists. Would you like to override it?');
+      if (window.confirm('The URL already exists. Would you like to override it?')) {
+        // Call the update URL function here to override the URL
+      }
     } else {
       alert('An error occurred');
     }

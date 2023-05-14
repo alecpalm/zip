@@ -31,7 +31,16 @@ exports.handler = async function(event, context) {
       headers: {
         'Content-Type': 'text/html'
       },
-      body: '<h1> </h1>'
+      body: `
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <video src="RB-yrHYLwpLsgbIN.mp4" autoplay controls></video>
+          </div>
+          <div>
+            <h1>Uh oh, you're lost</h1>
+          </div>
+        </div>
+      `
     };
   }
 };

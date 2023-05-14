@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "build": "build"
+  }
+}
+
+{
   "dependencies": {
     "faunadb": "^4.1.0"
   }

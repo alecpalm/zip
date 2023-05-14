@@ -29,9 +29,18 @@ exports.handler = async function(event, context) {
     return {
       statusCode: 404,
       headers: {
-        'Location': '/404.html' // Redirect to the custom 404 page
+        'Content-Type': 'text/html'
       },
-      body: ''
+      body: `
+        <div style="display: flex;">
+          <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+            <h1>Uh oh, you're lost</h1>
+          </div>
+          <div style="flex: 1;">
+            <video src="RB-yrHYLwpLsgbIN.mp4" autoplay loop style="width: 100%; height: 100%; object-fit: cover;"></video>
+          </div>
+        </div>
+      `
     };
   }
 };

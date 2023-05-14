@@ -2,6 +2,47 @@
 <html>
 <head>
   <title>URL List</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      color: #333333;
+    }
+    
+    table {
+      margin: 20px auto;
+      background-color: #dddddd;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+      border-collapse: collapse;
+      width: 80%;
+    }
+    
+    th {
+      background-color: #555555;
+      color: #ffffff;
+      padding: 10px;
+    }
+    
+    td {
+      background-color: #ffffff;
+      padding: 10px;
+    }
+    
+    button {
+      background-color: #dd3333;
+      color: #ffffff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #cc0000;
+    }
+  </style>
   <script>
     async function fetchAllUrls() {
       const response = await fetch('/.netlify/functions/fetchAll');

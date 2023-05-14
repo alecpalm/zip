@@ -5,7 +5,3 @@
   to = "/url-admin.html"
   status = 200
 
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/redirect"
-  status = 200

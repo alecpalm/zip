@@ -15,8 +15,16 @@
         }
       });
 
+      const responseBody = await response.text();
+
       if (response.ok) {
         alert('URL shortened successfully');
+      } else if (response.status === 409 && responseBody === 'URL already exists') {
+        if (confirm('The short URL already exists. Do you want to override it?')) {
+          // Add code here to override the existing URL
+        } else {
+          alert('URL not shortened');
+        }
       } else {
         alert('An error occurred');
       }

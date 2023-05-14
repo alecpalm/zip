@@ -9,6 +9,5 @@
   to = "/index.html"
   status = 200
 
-[[functions]]
-  name = "shorten"
-  path = "functions/shorten.js"
+[functions]
+  directory = "functions"

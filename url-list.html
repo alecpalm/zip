@@ -1,1 +1,25 @@
-fds
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL List</title>
+  <script>
+    async function fetchAllUrls() {
+      const response = await fetch('/.netlify/functions/fetchAll');
+      const urls = await response.json();
+
+      const urlList = document.getElementById('url-list');
+      urls.data.forEach((url) => {
+        const li = document.createElement('li');
+        li.textContent = `Short: ${url.data.short}, URL: ${url.data.url}`;
+        urlList.appendChild(li);
+      });
+    }
+
+    window.onload = fetchAllUrls;
+  </script>
+</head>
+<body>
+  <h1>List of URLs</h1>
+  <ul id="url-list"></ul>
+</body>
+</html>

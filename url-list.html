@@ -2,6 +2,47 @@
 <html>
 <head>
   <title>URL List</title>
+    <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #C0C0C0;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #F0F0F0;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 2px solid #C0C0C0;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #D3D3D3;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #F0F0F0;
+      border: 2px outset #C0C0C0;
+      color: #000;
+      padding: 4px 8px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    button:active {
+      border-style: inset;
+    }
+  </style>
+
   <script>
     async function fetchAllUrls() {
       const response = await fetch('/.netlify/functions/fetchAll');
@@ -54,5 +95,6 @@
       <th>Action</th>
     </tr>
   </table>
+  <a href="url-admin.html" Back>
 </body>
 </html>

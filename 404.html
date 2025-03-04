@@ -1,30 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>404 - Page Not Found</title>
-  <style>
-    body {
-      display: flex;
-    }
-
-    .video-container {
-      flex: 1;
-    }
-
-    .text-container {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Civic Voice Partners</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <meta name="robots" content="noindex">
+    <style>
+        .error-section {
+            padding-top: 140px;
+            padding-bottom: 70px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--secondary-color);
+        }
+        
+        .error-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .error-code {
+            font-family: 'Gotham Condensed', sans-serif;
+            font-size: 10rem;
+            font-weight: 700;
+            line-height: 1;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .error-description {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 8rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-description {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 1.8rem;
+            }
+            
+            .error-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="video-container">
-    <video src="RB-yrHYLwpLsgbIN.mp4" autoplay loop style="width: 100%; height: 100%; object-fit: cover;"></video>
-  </div>
-  <div class="text-container">
-    <h1>Uh oh, you're lost</h1>
-  </div>
+    <header id="header">
+        <div class="logo">CIVIC VOICE PARTNERS</div>
+        <button class="mobile-nav-toggle" id="navToggle">☰</button>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#clients">Clients</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#work">Our Work</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#clients">Clients</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay-bg" id="overlayBg"></div>
+
+    <!-- 404 Error Section -->
+    <section class="error-section">
+        <div class="error-container">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title"><em>Oops!</em> Page Not Found</h2>
+            <p class="error-description">The page you're looking for seems to have been moved, deleted, or maybe never existed. Let's get you back on track to find your civic voice.</p>
+            <div class="error-actions">
+                <a href="index.html" class="cta-button primary-btn">
+                    Return Home
+                </a>
+                <a href="index.html#contact" class="cta-button secondary-btn">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">Logo Placeholder</div>
+                <p>Civic Voice Partners is focused on empowering candidates and organizations to find their civic voice through impactful advocacy, electoral campaigns, voter outreach, and more.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#work">Our Work</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#clients">Clients</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="index.html#services">Campaign Strategy</a></li>
+                    <li><a href="index.html#services">Brand Development</a></li>
+                    <li><a href="index.html#services">Content Creation</a></li>
+                    <li><a href="index.html#services">Digital Engagement</a></li>
+                    <li><a href="index.html#services">Event Planning</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Civic Voice Partners. All rights reserved.</p>
+            <div>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        const overlayBg = document.getElementById('overlayBg');
+        
+        navToggle.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            overlayBg.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileNavClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            overlayBg.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        overlayBg.addEventListener('click', () => {
+            mobileNavClose.click();
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
